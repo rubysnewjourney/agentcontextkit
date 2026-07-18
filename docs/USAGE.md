@@ -1,11 +1,11 @@
-# RepoBrief usage
+# AgentContextKit usage
 
-RepoBrief has four commands: `scan`, `write`, `check`, and `diff`. All commands default to the current working directory and accept `--root <path>`.
+AgentContextKit has four commands: `scan`, `write`, `check`, and `diff`. All commands default to the current working directory and accept `--root <path>`.
 
 ## Scan a repo
 
 ```bash
-repobrief scan
+ackit scan
 ```
 
 Writes:
@@ -17,7 +17,7 @@ Writes:
 Example:
 
 ```bash
-repobrief scan --root ~/code/my-app
+ackit scan --root ~/code/my-app
 ```
 
 Expected output:
@@ -29,7 +29,7 @@ Wrote .agent-context/facts.json for my-app
 ## Generate agent context files
 
 ```bash
-repobrief write
+ackit write
 ```
 
 Writes or updates:
@@ -55,17 +55,17 @@ If `AGENTS.md` already contains hand-written notes:
 Use small PRs.
 ```
 
-RepoBrief appends a managed block instead of replacing the file:
+AgentContextKit appends a managed block instead of replacing the file:
 
 ```markdown
 # Project rules
 
 Use small PRs.
 
-<!-- repobrief:start -->
-# RepoBrief Context
+<!-- agentcontextkit:start -->
+# AgentContextKit Context
 ...
-<!-- repobrief:end -->
+<!-- agentcontextkit:end -->
 ```
 
 On the next write, only the managed block changes.
@@ -73,21 +73,21 @@ On the next write, only the managed block changes.
 ## Check for drift
 
 ```bash
-repobrief check
+ackit check
 ```
 
 Fresh output:
 
 ```text
-RepoBrief facts are fresh.
+AgentContextKit facts are fresh.
 ```
 
 Stale output example:
 
 ```text
-RepoBrief facts are stale. Run `repobrief write` to refresh.
+AgentContextKit facts are stale. Run `ackit write` to refresh.
 
-RepoBrief drift detected:
+AgentContextKit drift detected:
 - commands.build:
   + npm run build
 - frameworks:
@@ -103,10 +103,10 @@ Exit codes:
 ## Show differences without writing
 
 ```bash
-repobrief diff
+ackit diff
 ```
 
-This is useful before deciding whether to run `repobrief write`.
+This is useful before deciding whether to run `ackit write`.
 
 ## Running from source
 
@@ -131,21 +131,21 @@ node dist/cli.js write --root examples/demo-js
 For a new project:
 
 ```bash
-repobrief write
+ackit write
 git add AGENTS.md CLAUDE.md .cursor/rules/project.mdc .github/copilot-instructions.md .agent-context
 ```
 
 For ongoing maintenance:
 
 ```bash
-repobrief check || repobrief diff
-repobrief write
+ackit check || ackit diff
+ackit write
 ```
 
 For CI:
 
 ```bash
-repobrief check
+ackit check
 ```
 
-If CI fails, run `repobrief write` locally and commit the refreshed files.
+If CI fails, run `ackit write` locally and commit the refreshed files.

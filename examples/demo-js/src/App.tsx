@@ -1,3 +1,3 @@
 export function App() {
-  return <main>RepoBrief demo</main>;
+  return <main>AgentContextKit demo</main>;
 }

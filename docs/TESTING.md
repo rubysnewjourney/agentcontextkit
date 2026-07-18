@@ -1,4 +1,4 @@
-# Testing RepoBrief
+# Testing AgentContextKit
 
 ## Commands
 
@@ -93,15 +93,15 @@ Run:
 npm install
 ```
 
-### `repobrief check` fails after `repobrief write`
+### `ackit check` fails after `ackit write`
 
 Run:
 
 ```bash
-repobrief diff
+ackit diff
 ```
 
-If only generated agent docs changed from absent to present, rerun `repobrief write` with the current version. The MVP saves generated agent doc paths as part of facts so subsequent checks stay fresh.
+If only generated agent docs changed from absent to present, rerun `ackit write` with the current version. The MVP saves generated agent doc paths as part of facts so subsequent checks stay fresh.
 
 ### Windows / WSL notes
 

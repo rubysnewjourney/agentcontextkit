@@ -28,15 +28,29 @@ describe('writeContextFiles', () => {
     const repoMap = await readFile(join(root, '.agent-context/repo-map.md'), 'utf8');
 
     expect(agents).toContain('Do not remove me.');
-    expect(agents).toContain('<!-- repobrief:start -->');
+    expect(agents).toContain('<!-- agentcontextkit:start -->');
     expect(agents).toContain('npm test');
-    expect(claude).toContain('RepoBrief Context');
+    expect(claude).toContain('AgentContextKit Context');
     expect(cursor).toContain('alwaysApply: true');
     expect(copilot).toContain('Use the commands below');
     expect(repoMap).toContain('## Important folders');
   });
 
   it('replaces only the managed marker block on repeat writes', async () => {
+    root = await makeTempRepo();
+    await writeText(root, 'package.json', JSON.stringify({ scripts: { test: 'node --test' } }, null, 2));
+    await writeText(root, 'AGENTS.md', 'Top\n<!-- agentcontextkit:start -->\nstale\n<!-- agentcontextkit:end -->\nBottom\n');
+
+    await writeContextFiles(root, await scanRepo(root));
+    const agents = await readFile(join(root, 'AGENTS.md'), 'utf8');
+
+    expect(agents).toMatch(/^Top/);
+    expect(agents).toContain('Bottom');
+    expect(agents).not.toContain('stale');
+    expect((agents.match(/agentcontextkit:start/g) ?? []).length).toBe(1);
+  });
+
+  it('replaces legacy RepoBrief marker blocks with AgentContextKit markers', async () => {
     root = await makeTempRepo();
     await writeText(root, 'package.json', JSON.stringify({ scripts: { test: 'node --test' } }, null, 2));
     await writeText(root, 'AGENTS.md', 'Top\n<!-- repobrief:start -->\nstale\n<!-- repobrief:end -->\nBottom\n');
@@ -47,6 +61,7 @@ describe('writeContextFiles', () => {
     expect(agents).toMatch(/^Top/);
     expect(agents).toContain('Bottom');
     expect(agents).not.toContain('stale');
-    expect((agents.match(/repobrief:start/g) ?? []).length).toBe(1);
+    expect(agents).not.toContain('repobrief:start');
+    expect((agents.match(/agentcontextkit:start/g) ?? []).length).toBe(1);
   });
 });

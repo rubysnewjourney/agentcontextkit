@@ -25,8 +25,8 @@ export function compareFacts(saved: RepoFacts, current: RepoFacts): FactsDiff {
 }
 
 export function formatDriftSummary(diff: FactsDiff): string {
-  if (diff.fresh) return 'No RepoBrief drift detected.';
-  const lines = ['RepoBrief drift detected:'];
+  if (diff.fresh) return 'No AgentContextKit drift detected.';
+  const lines = ['AgentContextKit drift detected:'];
   for (const change of diff.changes) {
     if (isPlainRecord(change.saved) && isPlainRecord(change.current)) {
       const keys = new Set([...Object.keys(change.saved), ...Object.keys(change.current)]);

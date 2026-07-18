@@ -26,6 +26,6 @@
   "packageManagers": [
     "npm"
   ],
-  "rootName": "repobrief",
+  "rootName": "agentcontextkit",
   "schemaVersion": 1
 }

@@ -1,6 +1,6 @@
 # Demo JS app
 
-This tiny fixture demonstrates how RepoBrief detects a Vite/React/TypeScript-style project.
+This tiny fixture demonstrates how AgentContextKit detects a Vite/React/TypeScript-style project.
 
 Try:
 

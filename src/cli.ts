@@ -38,10 +38,10 @@ async function main(argv: string[] = process.argv.slice(2)): Promise<number> {
         const current = await scanRepo(args.root);
         const diff = compareFacts(saved, current);
         if (diff.fresh) {
-          console.log('RepoBrief facts are fresh.');
+          console.log('AgentContextKit facts are fresh.');
           return 0;
         }
-        console.log(`RepoBrief facts are stale. Run \`repobrief write\` to refresh.\n\n${formatDriftSummary(diff)}`);
+        console.log(`AgentContextKit facts are stale. Run \`ackit write\` to refresh.\n\n${formatDriftSummary(diff)}`);
         return 1;
       }
       case 'diff': {
@@ -89,12 +89,12 @@ async function readSavedFacts(root: string): Promise<RepoFacts> {
   try {
     return JSON.parse(await readFile(path, 'utf8')) as RepoFacts;
   } catch (error) {
-    throw new Error(`No saved facts found at ${path}. Run \`repobrief scan\` or \`repobrief write\` first.`);
+    throw new Error(`No saved facts found at ${path}. Run \`ackit scan\` or \`ackit write\` first.`);
   }
 }
 
 function printHelp(): void {
-  console.log(`RepoBrief\n\nOne command to keep AI coding agents aligned with your repo.\n\nUsage:\n  repobrief scan [--root <path>]\n  repobrief write [--root <path>]\n  repobrief check [--root <path>]\n  repobrief diff [--root <path>]\n`);
+  console.log(`AgentContextKit\n\nOne command to keep AI coding agents aligned with your repo.\n\nUsage:\n  ackit scan [--root <path>]\n  ackit write [--root <path>]\n  ackit check [--root <path>]\n  ackit diff [--root <path>]\n`);
 }
 
 main().then((code) => {

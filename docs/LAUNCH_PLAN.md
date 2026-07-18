@@ -1,24 +1,24 @@
-# RepoBrief Launch Plan
+# AgentContextKit Launch Plan
 
-Repo: https://github.com/fadythebassist/repobrief
+Repo: https://github.com/fadythebassist/agentcontextkit
 
-RepoBrief is public on GitHub. This plan focuses on getting the first real users, stars, feedback, and eventual monetization.
+AgentContextKit is public on GitHub. This plan focuses on getting the first real users, stars, feedback, and eventual monetization.
 
-> Important npm note: the unscoped npm package name `repobrief` is already taken. Do **not** advertise `npx repobrief` until package ownership/name is resolved. Use GitHub clone instructions for launch, or publish later as a scoped package such as `@fadythebassist/repobrief`.
+> Important npm note: the confirmed package name is `agentcontextkit`, and the installed CLI command is `ackit`.
 
 ## Positioning
 
 ### One-line pitch
 
-**RepoBrief keeps AI coding agents aligned with your repo.**
+**AgentContextKit keeps AI coding agents aligned with your repo.**
 
 ### Stronger launch hook
 
-Your `CLAUDE.md` / Cursor rules / Copilot instructions are probably already stale. RepoBrief scans your repo, writes the agent context files, and tells you when they drift.
+Your `CLAUDE.md` / Cursor rules / Copilot instructions are probably already stale. AgentContextKit scans your repo, writes the agent context files, and tells you when they drift.
 
 ### What it does
 
-RepoBrief generates and maintains:
+AgentContextKit generates and maintains:
 
 - `AGENTS.md`
 - `CLAUDE.md`
@@ -38,7 +38,7 @@ It detects:
 
 ### Why people should care
 
-AI coding agents waste time and make mistakes when they guess the repo setup. RepoBrief gives them the boring but critical facts up front, then catches stale context later.
+AI coding agents waste time and make mistakes when they guess the repo setup. AgentContextKit gives them the boring but critical facts up front, then catches stale context later.
 
 ## Target users
 
@@ -77,7 +77,7 @@ Already done:
 Recommended before big launch:
 
 - [ ] Add a short terminal GIF or screenshot to README
-- [ ] Decide npm package name (`@fadythebassist/repobrief` is safest)
+- [x] Decide npm package name (`agentcontextkit`) and CLI command (`ackit`)
 - [ ] Add GitHub Actions CI for test/typecheck/build
 - [ ] Add 2-3 real-world before/after examples
 - [ ] Create first GitHub release `v0.1.0`
@@ -91,7 +91,7 @@ Recommended before big launch:
 - Open 3 starter issues:
   - `Support monorepos/workspaces`
   - `Add GitHub Actions stale-context check example`
-  - `Publish npm package under scoped name`
+  - `Publish npm package as agentcontextkit`
 - Pin the best issue for contributors.
 
 ### Day 1 — X launch
@@ -142,10 +142,10 @@ Write a short dev.to / blog post:
 
 ### Day 7 — Package/install push
 
-If npm scoped package is ready, publish and announce:
+If the npm package is ready, publish and announce:
 
 ```bash
-npx @fadythebassist/repobrief write
+npx agentcontextkit write
 ```
 
 ## X launch thread
@@ -160,15 +160,15 @@ Moved tests.
 Added a build step.
 But CLAUDE.md / Cursor rules / Copilot instructions still say the old thing.
 
-I built RepoBrief to fix that.
+I built AgentContextKit to fix that.
 
-GitHub: https://github.com/fadythebassist/repobrief
+GitHub: https://github.com/fadythebassist/agentcontextkit
 ```
 
 ### Post 2
 
 ```text
-RepoBrief scans your repo and generates the files coding agents actually read:
+AgentContextKit scans your repo and generates the files coding agents actually read:
 
 - AGENTS.md
 - CLAUDE.md
@@ -187,7 +187,7 @@ The useful part is not just generation.
 
 It's drift detection:
 
-repobrief check
+ackit check
 
 If your repo changed but your agent instructions didn't, it tells you exactly what's stale.
 ```
@@ -198,9 +198,9 @@ If your repo changed but your agent instructions didn't, it tells you exactly wh
 Example:
 
 You add a build script.
-RepoBrief says:
+AgentContextKit says:
 
-RepoBrief drift detected:
+AgentContextKit drift detected:
 - commands.build:
   + npm run build
 
@@ -214,7 +214,7 @@ Why I care:
 
 AI agents waste tokens and make bad edits when they guess project setup.
 
-RepoBrief gives them the boring facts up front:
+AgentContextKit gives them the boring facts up front:
 - package manager
 - framework
 - test command
@@ -229,7 +229,7 @@ It's early, open-source, and intentionally small.
 
 If you use Claude Code, Cursor, Codex, Copilot, OpenCode, or Gemini CLI, try it on a repo and tell me what it misses.
 
-GitHub: https://github.com/fadythebassist/repobrief
+GitHub: https://github.com/fadythebassist/agentcontextkit
 ```
 
 ## Single X post variants
@@ -237,13 +237,13 @@ GitHub: https://github.com/fadythebassist/repobrief
 ### Direct
 
 ```text
-I built RepoBrief: a small CLI that keeps AI coding agents aligned with your repo.
+I built AgentContextKit: a small CLI that keeps AI coding agents aligned with your repo.
 
 It generates AGENTS.md, CLAUDE.md, Cursor rules, Copilot instructions, and detects when they go stale.
 
 No LLM calls. No API keys. Local only.
 
-https://github.com/fadythebassist/repobrief
+https://github.com/fadythebassist/agentcontextkit
 ```
 
 ### Funny / sharper
@@ -254,9 +254,9 @@ Your CLAUDE.md is probably lying to Claude.
 Repo changed. Test commands changed. Package manager changed.
 The agent instructions did not.
 
-RepoBrief scans the repo, writes the context files, and checks for drift.
+AgentContextKit scans the repo, writes the context files, and checks for drift.
 
-https://github.com/fadythebassist/repobrief
+https://github.com/fadythebassist/agentcontextkit
 ```
 
 ### Builder angle
@@ -264,13 +264,13 @@ https://github.com/fadythebassist/repobrief
 ```text
 Small weekend devtool:
 
-RepoBrief = repo onboarding packet for AI coding agents.
+AgentContextKit = repo onboarding packet for AI coding agents.
 
 Scans your codebase → writes AGENTS.md / CLAUDE.md / Cursor rules / Copilot instructions → detects stale context later.
 
 Would love feedback from Claude Code / Cursor / Codex users.
 
-https://github.com/fadythebassist/repobrief
+https://github.com/fadythebassist/agentcontextkit
 ```
 
 ## Show HN
@@ -278,13 +278,13 @@ https://github.com/fadythebassist/repobrief
 ### Title
 
 ```text
-Show HN: RepoBrief – keep AI coding agents aligned with your repo
+Show HN: AgentContextKit – keep AI coding agents aligned with your repo
 ```
 
 ### Body
 
 ```text
-Hi HN — I built RepoBrief, a small local CLI for people using AI coding agents.
+Hi HN — I built AgentContextKit, a small local CLI for people using AI coding agents.
 
 It scans a repo and generates the context files that tools like Claude Code, Cursor, Codex, and GitHub Copilot read:
 
@@ -295,13 +295,13 @@ It scans a repo and generates the context files that tools like Claude Code, Cur
 - .agent-context/repo-map.md
 - .agent-context/facts.json
 
-The main feature is drift detection. If your package manager, commands, frameworks, or important folders change, `repobrief check` tells you the agent context is stale.
+The main feature is drift detection. If your package manager, commands, frameworks, or important folders change, `ackit check` tells you the agent context is stale.
 
 No LLM calls, no API keys, no source upload. It is deterministic TypeScript.
 
 I built it because agent instruction files tend to be written once and then quietly rot.
 
-Repo: https://github.com/fadythebassist/repobrief
+Repo: https://github.com/fadythebassist/agentcontextkit
 
 Would love feedback on what repo facts should be detected next.
 ```
@@ -311,13 +311,13 @@ Would love feedback on what repo facts should be detected next.
 ```text
 I made a small open-source CLI for people using AI coding agents.
 
-RepoBrief scans your repo and generates AGENTS.md, CLAUDE.md, Cursor rules, and GitHub Copilot instructions. It also has `check`/`diff` commands so you know when those files go stale after repo changes.
+AgentContextKit scans your repo and generates AGENTS.md, CLAUDE.md, Cursor rules, and GitHub Copilot instructions. It also has `check`/`diff` commands so you know when those files go stale after repo changes.
 
 No LLM/API dependency — it just inspects package.json, Python config, folders, etc.
 
 I’m looking for feedback from people using Claude Code/Cursor/Codex in real repos: what context do your agents keep missing?
 
-GitHub: https://github.com/fadythebassist/repobrief
+GitHub: https://github.com/fadythebassist/agentcontextkit
 ```
 
 ## README/repo improvements for more stars
@@ -334,8 +334,8 @@ Highest impact:
 5. Add GitHub Actions example:
 
 ```yaml
-- run: npm run build
-- run: node dist/cli.js check --root .
+- run: npm install -g agentcontextkit
+- run: ackit check --root .
 ```
 
 ## Monetization later
@@ -366,7 +366,7 @@ First week:
 
 - 100+ stars
 - 5+ real issues/feature requests
-- npm scoped package published
+- npm package published
 - one contributor PR or fork
 
 First month:

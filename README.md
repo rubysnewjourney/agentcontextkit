@@ -1,8 +1,8 @@
-# RepoBrief
+# AgentContextKit
 
 One command to keep AI coding agents aligned with your repo.
 
-RepoBrief is a free, open-source TypeScript CLI that scans a codebase and generates durable context files for Claude Code, Codex, Cursor, GitHub Copilot, OpenCode, Gemini CLI, and other AI coding agents. It is intentionally offline-first: no LLM calls, no API keys, and no source upload.
+AgentContextKit is a free, open-source TypeScript CLI that scans a codebase and generates durable context files for Claude Code, Codex, Cursor, GitHub Copilot, OpenCode, Gemini CLI, and other AI coding agents. It is intentionally offline-first: no LLM calls, no API keys, and no source upload.
 
 ## Why it exists
 
@@ -14,17 +14,17 @@ AI coding agents work better when the repo tells them the same facts every time:
 - how to run tests, lint, typecheck, and build
 - where existing agent instructions already live
 
-Without that context, every agent session starts by rediscovering the basics. RepoBrief turns those basics into maintained, agent-readable files.
+Without that context, every agent session starts by rediscovering the basics. AgentContextKit turns those basics into maintained, agent-readable files.
 
 ## Install and local development
 
-The GitHub repo is public. The unscoped npm name `repobrief` is already taken by another package, so npm publishing should use a scoped name such as `@fadythebassist/repobrief` unless the package name becomes available.
+The GitHub repo is public. The npm package name is `agentcontextkit`, and the installed CLI command is `ackit`.
 
 For local development today:
 
 ```bash
-git clone https://github.com/fadythebassist/repobrief.git
-cd repobrief
+git clone https://github.com/fadythebassist/agentcontextkit.git
+cd agentcontextkit
 npm install
 npm run build
 npm run dev -- scan --root /path/to/your/repo
@@ -37,10 +37,12 @@ node dist/cli.js scan --root /path/to/your/repo
 node dist/cli.js write --root /path/to/your/repo
 ```
 
-Future npm usage, after publishing under a confirmed package name, should look like:
+Future npm usage, after publishing, should look like:
 
 ```bash
-npx @fadythebassist/repobrief write
+npx agentcontextkit write
+npm install -g agentcontextkit
+ackit write
 ```
 
 ## Quick start
@@ -48,15 +50,15 @@ npx @fadythebassist/repobrief write
 From a repository root:
 
 ```bash
-repobrief scan
-repobrief write
-repobrief check
+ackit scan
+ackit write
+ackit check
 ```
 
 Or scan a different path:
 
 ```bash
-repobrief write --root ../my-app
+ackit write --root ../my-app
 ```
 
 ## Before / after
@@ -70,7 +72,7 @@ my-app/
   tests/
 ```
 
-After `repobrief write`:
+After `ackit write`:
 
 ```text
 my-app/
@@ -85,20 +87,20 @@ my-app/
   tests/
 ```
 
-The generated agent docs include a managed section with stack hints, commands, important folders, and links back to the facts file. Existing human-written content is preserved outside RepoBrief markers.
+The generated agent docs include a managed section with stack hints, commands, important folders, and links back to the facts file. Existing human-written content is preserved outside AgentContextKit markers.
 
 ## CLI reference
 
-### `repobrief scan`
+### `ackit scan`
 
 Scans the current repo and writes `.agent-context/facts.json`.
 
 ```bash
-repobrief scan
-repobrief scan --root /path/to/repo
+ackit scan
+ackit scan --root /path/to/repo
 ```
 
-### `repobrief write`
+### `ackit write`
 
 Runs a scan and writes/updates all supported context files:
 
@@ -110,10 +112,10 @@ Runs a scan and writes/updates all supported context files:
 - `.agent-context/facts.json`
 
 ```bash
-repobrief write
+ackit write
 ```
 
-### `repobrief check`
+### `ackit check`
 
 Re-runs the scanner and compares current facts to `.agent-context/facts.json`.
 
@@ -122,17 +124,17 @@ Re-runs the scanner and compares current facts to `.agent-context/facts.json`.
 - prints a clear summary of changed fields
 
 ```bash
-repobrief check
+ackit check
 ```
 
 Useful in CI to keep generated context files updated.
 
-### `repobrief diff`
+### `ackit diff`
 
 Shows current-vs-saved fact differences without writing files.
 
 ```bash
-repobrief diff
+ackit diff
 ```
 
 ## Supported detections in the MVP
@@ -176,31 +178,31 @@ Existing agent docs:
 
 ## Safety model
 
-RepoBrief uses managed marker blocks in human-facing docs:
+AgentContextKit uses managed marker blocks in human-facing docs:
 
 ```html
-<!-- repobrief:start -->
+<!-- agentcontextkit:start -->
 ...generated content...
-<!-- repobrief:end -->
+<!-- agentcontextkit:end -->
 ```
 
 Rules:
 
-- If a file does not exist, RepoBrief creates it.
-- If a file exists with markers, RepoBrief replaces only the marked block.
-- If a file exists without markers, RepoBrief appends a managed block and preserves the existing content.
+- If a file does not exist, AgentContextKit creates it.
+- If a file exists with markers, AgentContextKit replaces only the marked block.
+- If a file exists without markers, AgentContextKit appends a managed block and preserves the existing content.
 - `.agent-context/repo-map.md` and `.agent-context/facts.json` are generated artifacts and can be regenerated.
-- RepoBrief never calls an LLM or uploads source code.
+- AgentContextKit never calls an LLM or uploads source code.
 
 ## CI usage
 
 Example GitHub Actions step after installing dependencies:
 
 ```yaml
-- name: Verify RepoBrief context is fresh
+- name: Verify AgentContextKit context is fresh
   run: |
-    npm install -g repobrief
-    repobrief check
+    npm install -g agentcontextkit
+    ackit check
 ```
 
 For this repo during development:
@@ -232,7 +234,7 @@ npm run dev -- check
 
 ## Open-core notes
 
-RepoBrief's core scanner, renderer, and CLI are designed to stay useful as a free/open-source developer tool. Monetization-friendly extensions can live around the core without locking basic context generation behind a service:
+AgentContextKit's core scanner, renderer, and CLI are designed to stay useful as a free/open-source developer tool. Monetization-friendly extensions can live around the core without locking basic context generation behind a service:
 
 - team policy packs
 - organization templates

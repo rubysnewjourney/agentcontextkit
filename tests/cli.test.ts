@@ -34,7 +34,7 @@ describe('CLI', () => {
 
     const checkFresh = runCli(['check'], root);
     expect(checkFresh.status).toBe(0);
-    expect(checkFresh.stdout).toContain('RepoBrief facts are fresh');
+    expect(checkFresh.stdout).toContain('AgentContextKit facts are fresh');
 
     await writeText(root, 'package.json', JSON.stringify({ scripts: { test: 'vitest run', build: 'vite build' }, dependencies: { react: '^19.0.0' }, devDependencies: { vite: '^6.0.0' } }, null, 2));
     const diff = runCli(['diff'], root);
@@ -43,7 +43,7 @@ describe('CLI', () => {
 
     const staleCheck = runCli(['check'], root);
     expect(staleCheck.status).toBe(1);
-    expect(staleCheck.stdout).toContain('RepoBrief facts are stale');
+    expect(staleCheck.stdout).toContain('AgentContextKit facts are stale');
 
     const saved = await readFile(join(root, '.agent-context/facts.json'), 'utf8');
     expect(saved).toContain('packageManagers');

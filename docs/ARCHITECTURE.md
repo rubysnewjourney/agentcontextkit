@@ -1,6 +1,6 @@
-# RepoBrief architecture
+# AgentContextKit architecture
 
-RepoBrief is intentionally small and deterministic. The MVP has no LLM/API dependency and no background service.
+AgentContextKit is intentionally small and deterministic. The MVP has no LLM/API dependency and no background service.
 
 ## Modules
 
@@ -60,9 +60,9 @@ The scanner does not execute project commands. This keeps scans fast and safe.
 Human-facing files use managed blocks:
 
 ```html
-<!-- repobrief:start -->
+<!-- agentcontextkit:start -->
 ...
-<!-- repobrief:end -->
+<!-- agentcontextkit:end -->
 ```
 
 Replacement policy:
@@ -71,7 +71,7 @@ Replacement policy:
 - existing file without block: append a block
 - missing file: create with only the block
 
-Generated artifacts under `.agent-context` are overwritten because they are RepoBrief-owned outputs.
+Generated artifacts under `.agent-context` are overwritten because they are AgentContextKit-owned outputs.
 
 ## Check and diff design
 

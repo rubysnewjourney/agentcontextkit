@@ -1,10 +1,10 @@
 {
-  "name": "repobrief",
+  "name": "agentcontextkit",
   "version": "0.1.0",
   "description": "One command to keep AI coding agents aligned with your repo.",
   "type": "module",
   "bin": {
-    "repobrief": "dist/cli.js"
+    "ackit": "dist/cli.js"
   },
   "files": [
     "dist",
@@ -32,11 +32,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fadythebassist/repobrief.git"
+    "url": "git+https://github.com/fadythebassist/agentcontextkit.git"
   },
-  "homepage": "https://github.com/fadythebassist/repobrief#readme",
+  "homepage": "https://github.com/fadythebassist/agentcontextkit#readme",
   "bugs": {
-    "url": "https://github.com/fadythebassist/repobrief/issues"
+    "url": "https://github.com/fadythebassist/agentcontextkit/issues"
   },
   "engines": {
     "node": ">=20"

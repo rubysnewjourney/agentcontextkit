@@ -1,5 +1,5 @@
 {
-  "name": "repobrief-demo-js",
+  "name": "agentcontextkit-demo-js",
   "private": true,
   "scripts": {
     "test": "vitest run",

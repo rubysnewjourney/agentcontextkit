@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 
 export async function makeTempRepo(): Promise<string> {
-  return mkdtemp(join(tmpdir(), 'repobrief-test-'));
+  return mkdtemp(join(tmpdir(), 'agentcontextkit-test-'));
 }
 
 export async function cleanup(path: string): Promise<void> {

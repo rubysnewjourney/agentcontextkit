@@ -1,7 +1,7 @@
-<!-- repobrief:start -->
-# RepoBrief Context for GitHub Copilot
+<!-- agentcontextkit:start -->
+# AgentContextKit Context for GitHub Copilot
 
-RepoBrief generated this block from repository facts. Preserve hand-written notes outside the managed markers.
+AgentContextKit generated this block from repository facts. Preserve hand-written notes outside the managed markers.
 
 ## Project
 
@@ -25,7 +25,7 @@ RepoBrief generated this block from repository facts. Preserve hand-written note
 
 ## Agent-doc safety
 
-RepoBrief owns only content between the managed start and end marker comments. Keep project-specific human guidance outside those markers.
+AgentContextKit owns only content between the managed start and end marker comments. Keep project-specific human guidance outside those markers.
 
 ## Source facts
 
@@ -33,4 +33,4 @@ See `.agent-context/facts.json` and `.agent-context/repo-map.md` for the raw sca
 
 
 Use the commands below before proposing large changes.
-<!-- repobrief:end -->
+<!-- agentcontextkit:end -->
