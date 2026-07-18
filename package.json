@@ -1,0 +1,42 @@
+{
+  "name": "repobrief",
+  "version": "0.1.0",
+  "description": "One command to keep AI coding agents aligned with your repo.",
+  "type": "module",
+  "bin": {
+    "repobrief": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "docs",
+    "examples"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "dev": "tsx src/cli.ts"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "cli",
+    "repo-context",
+    "claude-code",
+    "codex",
+    "cursor",
+    "copilot"
+  ],
+  "author": "Fady Erian",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

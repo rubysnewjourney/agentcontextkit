@@ -1,0 +1,33 @@
+{
+  "commands": {
+    "build": "npm run build",
+    "lint": "npm run lint",
+    "test": "npm test",
+    "typecheck": "npm run typecheck"
+  },
+  "existingAgentDocs": [
+    ".cursor/rules/project.mdc",
+    ".github/copilot-instructions.md",
+    "AGENTS.md",
+    "CLAUDE.md"
+  ],
+  "frameworks": [
+    "React",
+    "Vite"
+  ],
+  "generatedAt": "2026-07-17T14:35:21.000Z",
+  "importantFolders": [
+    "docs",
+    "src",
+    "tests"
+  ],
+  "languages": [
+    "JavaScript",
+    "TypeScript"
+  ],
+  "packageManagers": [
+    "npm"
+  ],
+  "rootName": "demo-js",
+  "schemaVersion": 1
+}
