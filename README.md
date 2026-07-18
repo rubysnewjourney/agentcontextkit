@@ -18,7 +18,9 @@ Without that context, every agent session starts by rediscovering the basics. Re
 
 ## Install and local development
 
-Published package install is planned. For local development today:
+The GitHub repo is public. The unscoped npm name `repobrief` is already taken by another package, so npm publishing should use a scoped name such as `@fadythebassist/repobrief` unless the package name becomes available.
+
+For local development today:
 
 ```bash
 git clone https://github.com/fadythebassist/repobrief.git
@@ -35,10 +37,10 @@ node dist/cli.js scan --root /path/to/your/repo
 node dist/cli.js write --root /path/to/your/repo
 ```
 
-When published to npm, the target usage is:
+Future npm usage, after publishing under a confirmed package name, should look like:
 
 ```bash
-npx repobrief write
+npx @fadythebassist/repobrief write
 ```
 
 ## Quick start
