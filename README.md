@@ -4,6 +4,8 @@ One command to keep AI coding agents aligned with your repo.
 
 AgentContextKit is a free, open-source TypeScript CLI that scans a codebase and generates durable context files for Claude Code, Codex, Cursor, GitHub Copilot, OpenCode, Gemini CLI, and other AI coding agents. It is intentionally offline-first: no LLM calls, no API keys, and no source upload.
 
+![AgentContextKit comic: AI agent invents architecture until ackit gives it repo facts](docs/agentcontextkit-comic-stickmen-revised-clean.png)
+
 ## Why it exists
 
 AI coding agents work better when the repo tells them the same facts every time:
