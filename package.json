@@ -1,5 +1,5 @@
 {
-  "name": "agentcontextkit",
+  "name": "ackit",
   "version": "0.1.0",
   "description": "One command to keep AI coding agents aligned with your repo.",
   "type": "module",

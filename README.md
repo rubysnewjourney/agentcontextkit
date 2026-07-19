@@ -20,7 +20,7 @@ Without that context, every agent session starts by rediscovering the basics. Ag
 
 ## Install and local development
 
-The GitHub repo is public. The npm package name is `agentcontextkit`, and the installed CLI command is `ackit`.
+The GitHub repo is public. The npm package name is `ackit`, and the installed CLI command is also `ackit`.
 
 For local development today:
 
@@ -42,8 +42,8 @@ node dist/cli.js write --root /path/to/your/repo
 Future npm usage, after publishing, should look like:
 
 ```bash
-npx agentcontextkit write
-npm install -g agentcontextkit
+npx ackit write
+npm install -g ackit
 ackit write
 ```
 
@@ -203,7 +203,7 @@ Example GitHub Actions step after installing dependencies:
 ```yaml
 - name: Verify AgentContextKit context is fresh
   run: |
-    npm install -g agentcontextkit
+    npm install -g ackit
     ackit check
 ```
 

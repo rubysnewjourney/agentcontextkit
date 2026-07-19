@@ -4,7 +4,7 @@ Repo: https://github.com/fadythebassist/agentcontextkit
 
 AgentContextKit is public on GitHub. This plan focuses on getting the first real users, stars, feedback, and eventual monetization.
 
-> Important npm note: the confirmed package name is `agentcontextkit`, and the installed CLI command is `ackit`.
+> Important npm note: the confirmed package name is `ackit`, and the installed CLI command is `ackit`.
 
 ## Positioning
 
@@ -77,7 +77,7 @@ Already done:
 Recommended before big launch:
 
 - [ ] Add a short terminal GIF or screenshot to README
-- [x] Decide npm package name (`agentcontextkit`) and CLI command (`ackit`)
+- [x] Decide npm package name (`ackit`) and CLI command (`ackit`)
 - [ ] Add GitHub Actions CI for test/typecheck/build
 - [ ] Add 2-3 real-world before/after examples
 - [ ] Create first GitHub release `v0.1.0`
@@ -91,7 +91,7 @@ Recommended before big launch:
 - Open 3 starter issues:
   - `Support monorepos/workspaces`
   - `Add GitHub Actions stale-context check example`
-  - `Publish npm package as agentcontextkit`
+  - `Publish npm package as ackit`
 - Pin the best issue for contributors.
 
 ### Day 1 — X launch
@@ -145,7 +145,7 @@ Write a short dev.to / blog post:
 If the npm package is ready, publish and announce:
 
 ```bash
-npx agentcontextkit write
+npx ackit write
 ```
 
 ## X launch thread
@@ -334,7 +334,7 @@ Highest impact:
 5. Add GitHub Actions example:
 
 ```yaml
-- run: npm install -g agentcontextkit
+- run: npm install -g ackit
 - run: ackit check --root .
 ```
 
