@@ -49,19 +49,4 @@ describe('writeContextFiles', () => {
     expect(agents).not.toContain('stale');
     expect((agents.match(/agentcontextkit:start/g) ?? []).length).toBe(1);
   });
-
-  it('replaces legacy RepoBrief marker blocks with AgentContextKit markers', async () => {
-    root = await makeTempRepo();
-    await writeText(root, 'package.json', JSON.stringify({ scripts: { test: 'node --test' } }, null, 2));
-    await writeText(root, 'AGENTS.md', 'Top\n<!-- repobrief:start -->\nstale\n<!-- repobrief:end -->\nBottom\n');
-
-    await writeContextFiles(root, await scanRepo(root));
-    const agents = await readFile(join(root, 'AGENTS.md'), 'utf8');
-
-    expect(agents).toMatch(/^Top/);
-    expect(agents).toContain('Bottom');
-    expect(agents).not.toContain('stale');
-    expect(agents).not.toContain('repobrief:start');
-    expect((agents.match(/agentcontextkit:start/g) ?? []).length).toBe(1);
-  });
 });

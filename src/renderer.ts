@@ -2,19 +2,12 @@ import type { RepoFacts } from './types.js';
 
 const START = '<!-- agentcontextkit:start -->';
 const END = '<!-- agentcontextkit:end -->';
-const LEGACY_START = '<!-- repobrief:start -->';
-const LEGACY_END = '<!-- repobrief:end -->';
 
 export function withManagedBlock(existing: string | undefined, body: string): string {
   const block = `${START}\n${body.trim()}\n${END}\n`;
   if (!existing || existing.trim().length === 0) return block;
-  for (const [start, end] of [
-    [START, END],
-    [LEGACY_START, LEGACY_END]
-  ]) {
-    const pattern = new RegExp(`${escapeRegex(start)}[\\s\\S]*?${escapeRegex(end)}\\n?`, 'm');
-    if (pattern.test(existing)) return existing.replace(pattern, block);
-  }
+  const pattern = new RegExp(`${escapeRegex(START)}[\\s\\S]*?${escapeRegex(END)}\\n?`, 'm');
+  if (pattern.test(existing)) return existing.replace(pattern, block);
   const separator = existing.endsWith('\n') ? '\n' : '\n\n';
   return `${existing}${separator}${block}`;
 }
