@@ -1,10 +1,11 @@
 # AgentContextKit Launch Plan
 
 Repo: https://github.com/fadythebassist/agentcontextkit
+Npm: https://www.npmjs.com/package/ackit (`ackit@0.1.0` is live)
 
-AgentContextKit is public on GitHub. This plan focuses on getting the first real users, stars, feedback, and eventual monetization.
+AgentContextKit is public on GitHub and `ackit@0.1.0` is live on npm. This plan focuses on getting the first real users, stars, feedback, and eventual monetization.
 
-> Important npm note: the confirmed package name is `ackit`, and the installed CLI command is `ackit`.
+> Important npm note: the package name is `ackit`, and the installed CLI command is `ackit`.
 
 ## Positioning
 
@@ -58,7 +59,7 @@ Secondary:
 - engineering teams trying AI coding agents
 - open-source maintainers who want agent-ready repos
 
-## Pre-launch checklist
+## Launch checklist
 
 Already done:
 
@@ -73,12 +74,13 @@ Already done:
 - [x] GitHub Discussions enabled
 - [x] Tests pass
 - [x] Production npm audit clean (`npm audit --omit=dev`)
+- [x] npm package published as `ackit@0.1.0`
+- [x] GitHub Actions CI for test/typecheck/build
 
 Recommended before big launch:
 
 - [ ] Add a short terminal GIF or screenshot to README
 - [x] Decide npm package name (`ackit`) and CLI command (`ackit`)
-- [ ] Add GitHub Actions CI for test/typecheck/build
 - [ ] Add 2-3 real-world before/after examples
 - [ ] Create first GitHub release `v0.1.0`
 
@@ -91,7 +93,7 @@ Recommended before big launch:
 - Open 3 starter issues:
   - `Support monorepos/workspaces`
   - `Add GitHub Actions stale-context check example`
-  - `Publish npm package as ackit`
+  - `Add more framework detectors`
 - Pin the best issue for contributors.
 
 ### Day 1 — X launch
@@ -142,7 +144,7 @@ Write a short dev.to / blog post:
 
 ### Day 7 — Package/install push
 
-If the npm package is ready, publish and announce:
+Push the live npm install path:
 
 ```bash
 npx ackit write
@@ -366,12 +368,12 @@ First week:
 
 - 100+ stars
 - 5+ real issues/feature requests
-- npm package published
+- early npm installs via `npx ackit write`
 - one contributor PR or fork
 
 First month:
 
-- CI action added
+- CI check adoption in user repos
 - monorepo support improved
 - real users mention it on X/HN/Reddit
 - start GitHub App prototype

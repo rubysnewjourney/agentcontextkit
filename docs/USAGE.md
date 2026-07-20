@@ -2,6 +2,21 @@
 
 AgentContextKit has four commands: `scan`, `write`, `check`, and `diff`. All commands default to the current working directory and accept `--root <path>`.
 
+## Run from npm
+
+From a repository root:
+
+```bash
+npx ackit write
+```
+
+Or install globally:
+
+```bash
+npm install -g ackit
+ackit write
+```
+
 ## Scan a repo
 
 ```bash

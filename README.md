@@ -2,6 +2,9 @@
 
 One command to keep AI coding agents aligned with your repo.
 
+[![npm version](https://img.shields.io/npm/v/ackit.svg)](https://www.npmjs.com/package/ackit)
+[![CI](https://github.com/fadythebassist/agentcontextkit/actions/workflows/ci.yml/badge.svg)](https://github.com/fadythebassist/agentcontextkit/actions/workflows/ci.yml)
+
 AgentContextKit is a free, open-source TypeScript CLI that scans a codebase and generates durable context files for Claude Code, Codex, Cursor, GitHub Copilot, OpenCode, Gemini CLI, and other AI coding agents. It is intentionally offline-first: no LLM calls, no API keys, and no source upload.
 
 ![AgentContextKit comic: AI agent invents architecture until ackit gives it repo facts](docs/agentcontextkit-comic-stickmen-revised-clean.png)
@@ -18,11 +21,24 @@ AI coding agents work better when the repo tells them the same facts every time:
 
 Without that context, every agent session starts by rediscovering the basics. AgentContextKit turns those basics into maintained, agent-readable files.
 
-## Install and local development
+## Install
 
-The GitHub repo is public. The npm package name is `ackit`, and the installed CLI command is also `ackit`.
+The GitHub repo is public. The npm package name is [`ackit`](https://www.npmjs.com/package/ackit), and the installed CLI command is also `ackit`.
 
-For local development today:
+From a repository root, run the CLI directly with `npx`:
+
+```bash
+npx ackit write
+```
+
+Or install it globally:
+
+```bash
+npm install -g ackit
+ackit write
+```
+
+For local development from source:
 
 ```bash
 git clone https://github.com/fadythebassist/agentcontextkit.git
@@ -32,24 +48,15 @@ npm run build
 npm run dev -- scan --root /path/to/your/repo
 ```
 
-After build, you can run the compiled CLI directly:
-
-```bash
-node dist/cli.js scan --root /path/to/your/repo
-node dist/cli.js write --root /path/to/your/repo
-```
-
-Future npm usage, after publishing, should look like:
-
-```bash
-npx ackit write
-npm install -g ackit
-ackit write
-```
-
 ## Quick start
 
 From a repository root:
+
+```bash
+npx ackit write
+```
+
+Then use the installed CLI for follow-up commands if you installed it globally:
 
 ```bash
 ackit scan
