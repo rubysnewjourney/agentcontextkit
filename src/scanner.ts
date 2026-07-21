@@ -95,6 +95,8 @@ function detectFrameworks(files: string[], deps: Set<string>, languages: string[
   if (deps.has('vite') || files.some((f) => /^vite\.config\.[cm]?[jt]s$/.test(f))) frameworks.add('Vite');
   if (deps.has('fastapi') || files.some((f) => /(^|\/)main\.py$/.test(f))) frameworks.add('FastAPI');
   if (deps.has('django') || files.some((f) => /(^|\/)manage\.py$/.test(f))) frameworks.add('Django');
+  if (deps.has('astro') || files.some((f) => /^astro\.config\.[cm]?[jt]s$/.test(f))) frameworks.add('Astro');
+  if (files.some((f) => /^Cargo\.toml$/.test(f))) frameworks.add('Rust/Cargo');
   if (frameworks.size === 0 && languages.length > 0) frameworks.add('generic');
   return uniqueSorted(frameworks);
 }
