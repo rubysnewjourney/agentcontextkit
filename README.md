@@ -31,6 +31,8 @@ From a repository root, run the CLI directly with `npx`:
 npx ackit write
 ```
 
+![AgentContextKit terminal demo: npx ackit write generates agent context files](docs/ackit-demo.gif)
+
 Or install it globally:
 
 ```bash
