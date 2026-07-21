@@ -60,4 +60,51 @@ describe('scanRepo', () => {
     expect(facts.commands.typecheck).toBe('uv run mypy .');
     expect(saved.schemaVersion).toBe(1);
   });
+  it('detects Astro via config file even without the Astro dependency declared', async () => {
+    root = await makeTempRepo();
+    await writeText(root, 'astro.config.mjs', 'export default {};\n');
+    
+    const facts = await scanRepo(root);
+  
+    expect(facts.frameworks).toContain('Astro');
+  });
+  it('detects Astro via dependency even without a config file', async () => {
+    root = await makeTempRepo();
+    await writeText(root, 'package.json', JSON.stringify({ dependencies: { astro: '^5.0.0' } }, null, 2));
+  
+    const facts = await scanRepo(root);
+
+    expect(facts.frameworks).toContain('Astro');
+  });
+  it('detects Rust/Cargo via Cargo.toml', async () => {
+    root = await makeTempRepo();
+    await writeText(root, 'Cargo.toml', '[package]\nname = "demo"\nversion = "0.1.0"\n');
+    
+    const facts = await scanRepo(root);
+  
+    expect(facts.frameworks).toContain('Rust/Cargo');
+  });
+  it('does not report a framework for an unrelated repo', async () => {
+    root = await makeTempRepo();
+    await writeText(root, 'README.md', '# just docs\n');
+
+    const facts = await scanRepo(root);
+
+    expect(facts.frameworks).not.toContain('Astro');
+    expect(facts.frameworks).not.toContain('Rust/Cargo');
+  });
+  it('ignores files inside a Rust target/ build directory so they do not crowd out real facts', async () => {
+    root = await makeTempRepo();
+    await writeText(root, 'Cargo.toml', '[package]\nname = "demo"\nversion = "0.1.0"\n');
+    await writeText(root, 'tests/basic.rs', '#[test]\nfn it_works() {}\n');
+    for (let i = 0; i < 40; i++) {
+      await writeText(root, `target/debug/deps/artifact-${i}.d`, 'noise\n');
+    }
+
+    const facts = await scanRepo(root);
+
+    expect(facts.frameworks).toContain('Rust/Cargo');
+    expect(facts.importantFolders).toContain('tests');
+  });
+  
 });

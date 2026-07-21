@@ -53,7 +53,7 @@ function sortDeep(value: unknown): unknown {
 
 export async function listFiles(root: string, options: { maxFiles?: number } = {}): Promise<string[]> {
   const maxFiles = options.maxFiles ?? 5000;
-  const ignored = new Set(['.git', 'node_modules', 'dist', 'build', '.next', 'coverage', '.venv', 'venv', '__pycache__', '.pytest_cache', '.mypy_cache']);
+  const ignored = new Set(['.git', 'node_modules', 'dist', 'build', '.next', 'coverage', '.venv', 'venv', '__pycache__', '.pytest_cache', '.mypy_cache', 'target']);
   const result: string[] = [];
   async function walk(dir: string): Promise<void> {
     if (result.length >= maxFiles) return;
